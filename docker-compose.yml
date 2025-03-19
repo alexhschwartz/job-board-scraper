@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_ENV=development
+      - SECRET_KEY=development_key
+    volumes:
+      - ./uploads:/app/uploads
+      - ./instance:/app/instance
+
+volumes:
+  uploads:
+  instance:
